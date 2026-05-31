@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Projects - 白の主页</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                colors: {
+                    blue: "#55CDFC",
+                    pink: "#F7A8B8",
+                    white: "#FFFFFF",
+                    transparent: "transparent"
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #55CDFC;
+            -webkit-font-smoothing: antialiased;
+            min-height: max(884px, 100dvh);
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(255, 255, 255, 0.9);
+            border-left: 1px solid rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(85, 205, 252, 0.2);
+        }
+        #mobile-menu.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #mobile-menu.is-open .menu-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-fade-down {
+            opacity: 0;
+            animation: fadeDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+    </style>
+</head>
+<body class="min-h-screen relative flex flex-col items-center font-sans">
+    <div class="fixed inset-0 z-[-1] bg-white overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-blue filter blur-[100px] opacity-40"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-pink filter blur-[100px] opacity-40"></div>
+        <div class="absolute top-[40%] left-[30%] w-[40vw] h-[40vw] rounded-full bg-blue filter blur-[120px] opacity-20"></div>
+    </div>
+
+    <header class="fixed top-0 w-full z-50 glass-panel flex justify-between items-center px-6 py-4 animate-fade-down">
+        <button aria-label="Menu" class="text-blue hover:text-pink transition-transform duration-300 active:scale-95 relative z-10" id="menu-toggle">
+            <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">menu</span>
+        </button>
+        <span class="absolute left-1/2 -translate-x-1/2 text-2xl font-bold uppercase tracking-widest text-blue">Projects</span>
+        <div class="w-8 relative z-10"></div>
+    </header>
+
+    <div class="fixed inset-0 z-[60] glass-panel opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col justify-center items-center" id="mobile-menu">
+        <button class="absolute top-6 right-6 text-blue hover:text-pink hover:scale-110 transition-transform p-2" id="menu-close">
+            <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 0;">close</span>
+        </button>
+        <nav class="flex flex-col items-center space-y-10">
+            <a class="menu-item opacity-0 translate-y-8 transition-all duration-500 text-3xl font-bold text-blue hover:text-pink tracking-widest uppercase" href="projects.html" style="transition-delay: 150ms;">projects</a>
+            <a class="menu-item opacity-0 translate-y-8 transition-all duration-500 text-3xl font-bold text-blue hover:text-pink tracking-widest uppercase" href="https://blog.life-white.uk/friends" style="transition-delay: 100ms;">friends</a>
+            <a class="menu-item opacity-0 translate-y-8 transition-all duration-500 text-3xl font-bold text-blue hover:text-pink tracking-widest uppercase" href="index.html" style="transition-delay: 100ms;">website</a>
+            <a class="menu-item opacity-0 translate-y-8 transition-all duration-500 text-3xl font-bold text-blue hover:text-pink tracking-widest uppercase" href="https://status.life-white.uk/" style="transition-delay: 100ms;">monitoring</a>
+        </nav>
+    </div>
+
+    <main class="w-full max-w-5xl px-6 pt-36 pb-32 flex flex-col space-y-10">
+        
+        <section class="flex flex-col items-center text-center mb-6 animate-fade-up delay-100">
+            <h1 class="text-5xl md:text-6xl font-bold text-blue mb-6 tracking-tight">Projects</h1>
+            <p class="text-lg text-pink max-w-md font-medium">Some projects</p>
+        </section>
+
+        <div class="relative w-full max-w-2xl mx-auto z-10 animate-fade-up delay-200">
+            <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-blue">search</span>
+            </div>
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="block w-full pl-14 pr-6 py-5 glass-panel rounded-full text-lg text-blue placeholder:text-pink focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/30 transition-all duration-300 font-medium" 
+                placeholder="搜索项目名称、描述或标签..."
+            >
+        </div>
+
+        <section class="flex flex-col space-y-6" id="projectList">
+            
+            <a href="https://status.life-white.uk" target="_blank" rel="noopener noreferrer" class="project-card glass-panel rounded-2xl p-8 relative overflow-hidden group hover:scale-[1.02] transition-all duration-500 block animate-fade-up delay-300">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-5">
+                        <div class="w-14 h-14 rounded-2xl bg-white/60 flex items-center justify-center border border-white">
+                            <span class="material-symbols-outlined text-blue text-4xl">speed</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-blue">Status Monitor</h3>
+                    </div>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-blue group-hover:scale-110 transition-all duration-300">
+                        <span class="material-symbols-outlined text-pink group-hover:text-white">arrow_forward</span>
+                    </div>
+                </div>
+                <p class="text-pink text-lg mb-6 font-medium">这是一个GitHub上开源的可监视网站的项目</p>
+                <div class="flex space-x-3">
+                    <span class="text-xs font-bold uppercase tracking-widest bg-white/60 px-3 py-1.5 rounded-lg text-blue border border-white/50">GitHub</span>
+                </div>
+            </a>
+
+            <a href="https://githubdaily.com/" target="_blank" rel="noopener noreferrer" class="project-card glass-panel rounded-2xl p-8 relative overflow-hidden group hover:scale-[1.02] transition-all duration-500 block animate-fade-up delay-400">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center space-x-5">
+                        <div class="w-14 h-14 rounded-2xl bg-white/60 flex items-center justify-center border border-white">
+                            <span class="material-symbols-outlined text-blue text-4xl">collections_bookmark</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-blue">GitHubDaily</h3>
+                    </div>
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-blue group-hover:scale-110 transition-all duration-300">
+                        <span class="material-symbols-outlined text-pink group-hover:text-white">arrow_forward</span>
+                    </div>
+                </div>
+                <p class="text-pink text-lg mb-6 font-medium">GitHub集合资源项目</p>
+                <div class="flex space-x-3">
+                    <span class="text-xs font-bold uppercase tracking-widest bg-white/60 px-3 py-1.5 rounded-lg text-blue border border-white/50">GitHub</span>
+                    <span class="text-xs font-bold uppercase tracking-widest bg-white/60 px-3 py-1.5 rounded-lg text-blue border border-white/50">Open Source</span>
+                </div>
+            </a>
+
+        </section>
+
+        <div id="noResults" class="hidden flex-col items-center justify-center py-16 text-center">
+            <span class="material-symbols-outlined text-6xl text-pink mb-4">search_off</span>
+            <p class="text-lg font-bold text-blue">没有找到匹配的项目，请尝试其他关键字。</p>
+        </div>
+
+    </main>
+
+    <footer class="w-full py-10 px-6 glass-panel flex flex-col items-center space-y-4 text-center mt-auto animate-fade-up delay-500">
+        <span class="text-2xl font-bold text-blue tracking-widest">WHITE</span>
+        <p class="text-xs font-bold uppercase tracking-widest text-pink">© 2026 白. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuClose = document.getElementById('menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            menuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-open');
+                document.body.style.overflow = '';
+            });
+
+            const searchInput = document.getElementById('searchInput');
+            const projectCards = document.querySelectorAll('.project-card');
+            const noResults = document.getElementById('noResults');
+
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                let hasVisibleCards = false;
+
+                projectCards.forEach(card => {
+                    const textContent = card.innerText.toLowerCase();
+                    if (textContent.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        hasVisibleCards = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (!hasVisibleCards) {
+                    noResults.classList.remove('hidden');
+                    noResults.classList.add('flex');
+                } else {
+                    noResults.classList.add('hidden');
+                    noResults.classList.remove('flex');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
